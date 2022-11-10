@@ -5,10 +5,7 @@ import com.example.demoC14.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/userdata/v1")
@@ -22,5 +19,8 @@ public class UserController {
     public ResponseEntity<?> saveUser(@RequestBody  User user){
         return new ResponseEntity<>(userService.addUser(user), HttpStatus.CREATED);
     }
-
+    @GetMapping("/getuser")
+public ResponseEntity<?> getAllUser(){
+        return new ResponseEntity<>(userService.getAllUser(),HttpStatus.OK);
+}
 }
