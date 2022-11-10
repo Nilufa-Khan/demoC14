@@ -14,6 +14,7 @@ public class JwtSecurityTokenGenerator implements SecurityTokenGenerate{
     @Override
 
     public Map<String, String> generateToken(User user) {
+
         String jwtToken = null;
         jwtToken = Jwts.builder().setSubject(user.getUserName())
                 .setIssuedAt(new Date())
