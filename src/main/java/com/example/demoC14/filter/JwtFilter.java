@@ -26,7 +26,7 @@ public class JwtFilter extends GenericFilterBean {
 
         // header has 'Authoriztion', it is not null, has 'Bearer'
         String token = authHeader.substring(7); // removes 'Bearer ' from token value
-        Claims claims = Jwts.parser().setSigningKey("mykey").parseClaimsJws(token).getBody();
+        Claims claims = Jwts.parser().setSigningKey("examplekey").parseClaimsJws(token).getBody();
         System.out.println("\nclaims : " + claims);
 
         httpServletRequest.setAttribute("claims", claims);
