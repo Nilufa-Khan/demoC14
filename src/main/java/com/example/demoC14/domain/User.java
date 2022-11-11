@@ -1,10 +1,11 @@
 package com.example.demoC14.domain;
 
-import org.springframework.data.annotation.Id;
+import javax.persistence.Id;
 
+import javax.persistence.Entity;
 import java.lang.annotation.Documented;
 
-
+@Entity
 public class User {
     @Id
     private int userId;
