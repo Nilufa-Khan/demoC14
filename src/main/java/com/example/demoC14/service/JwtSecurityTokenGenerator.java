@@ -1,6 +1,6 @@
 package com.example.demoC14.service;
 
-import com.example.demoC14.domain.User;
+import com.example.demoC14.domain.Customer;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import org.springframework.stereotype.Service;
@@ -13,16 +13,16 @@ import java.util.Map;
 public class JwtSecurityTokenGenerator implements SecurityTokenGenerate{
     @Override
 
-    public Map<String, String> generateToken(User user) {
+    public Map<String, String> generateToken(Customer customer) {
 
         String jwtToken = null;
 
-        jwtToken = Jwts.builder().setSubject(user.getUserName())
+        jwtToken = Jwts.builder().setSubject(customer.getCustomerName())
                 .setIssuedAt(new Date())
                 .signWith(SignatureAlgorithm.HS256,"examplekey").compact();
         Map<String,String> map = new HashMap<>();
         map.put("token",jwtToken);
-        map.put("message","User Successfully logged in");
+        map.put("message","Customer Successfully logged in");
         return map;
     }
 }
